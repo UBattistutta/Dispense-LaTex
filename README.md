@@ -68,8 +68,6 @@ Dispense/
 │   └── Fisica/
 ```
 
-I nomi dei file seguono lo schema `AAAA-MM-GG_Classe_Materia_Argomento_Tipo`, così restano ordinati cronologicamente anche nell'esploratore file.
-
 > ⚠️ **Nota:** questo repository contiene solo materiale didattico di consultazione (dispense). Verifiche, soluzioni e griglie di correzione **non** sono qui, ma in un archivio separato ad accesso riservato.
 
 ---
