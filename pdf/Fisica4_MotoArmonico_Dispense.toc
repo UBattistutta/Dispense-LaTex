@@ -1,0 +1,14 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Introduzione}{2}{}%
+\contentsline {section}{\numberline {2}Dal moto circolare ed uniforme al moto armonico}{2}{}%
+\contentsline {subsection}{\numberline {2.1}La posizione}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Equazione della posizione}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}Conclusioni}{4}{}%
+\contentsline {subsection}{\numberline {2.2}La velocità nel moto armonico}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}L’equazione della velocità}{6}{}%
+\contentsline {subsection}{\numberline {2.3}L'accelerazione nel moto armonico}{8}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Equazione dell'accelerazione nel moto armonico}{8}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}Spiegazione geometrica con i vettori $\vec {a_x}$ e $\vec {a'_x}$}{9}{}%
+\contentsline {section}{\numberline {3}Sintesi finale: le grandezze del moto armonico}{10}{}%
+\contentsline {section}{\numberline {4}Conclusione}{11}{}%
