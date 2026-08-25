@@ -1,5 +1,5 @@
 # Dispense-LaTex
-Repository contenente materiale di visibilità pubblica.
+Repository contenente materiale di visibilità pubblica..
 
 
 ## Dispense
