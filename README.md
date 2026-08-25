@@ -6,9 +6,9 @@ Repository contenente materiale di visibilità pubblica..
 
 ### Matematica
  
-### Fisica
+### Fisica 4
 
-- [Cinematica](pdf/Fisica4_MotoArmonico_Dispense.pdf)
+- [Il moto armonico](pdf/Fisica4_MotoArmonico_Dispense.pdf)
 
 ## Verifiche svolte
  
