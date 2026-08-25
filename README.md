@@ -11,7 +11,6 @@
 ![Formato](https://img.shields.io/badge/formato-PDF%20%2F%20LaTeX-orange)
 
 </div> 
-
 ---
 
 ## 👋 Benvenuti
