@@ -1,0 +1,632 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tikz}
+\usetikzlibrary{calc, decorations.pathreplacing}
+
+\geometry{margin=2cm}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% --- Titoli dei capitoli/sezioni: sempre allineati a sinistra ---
+\titleformat{\section}{\normalfont\raggedright\Large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\raggedright\large\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\raggedright\normalsize\bfseries}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.5ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+
+% --- Ambienti per definizioni, osservazioni, esempi, note ---
+% (stile semplice: nessun colore, nessun riquadro)
+\theoremstyle{definition}
+\newtheorem{defin}{Definizione}[section]
+\newtheorem{esempio}{Esempio}[section]
+\theoremstyle{remark}
+\newtheorem{oss}{Osservazione}[section]
+\newtheorem{nota}{Nota}[section]
+
+\title{\textbf{Teoria della misura}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Teoria della misura}
+\rhead{\thepage}
+
+\begin{document}
+\onehalfspacing
+
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    \rule{\textwidth}{0.6pt}\\[1.2em]
+    {\Huge \textbf{Teoria della misura}}\\[0.8em]
+    \rule{\textwidth}{0.6pt}\\[4cm]
+
+    {\Large \textbf{La misura delle grandezze. Proporzioni tra grandezze}}\\[10cm]
+
+    \begin{flushright}
+        \textbf{U. Battistutta}\\[0.4cm]
+        Versione in bozza -- Novembre 2025
+    \end{flushright}
+\end{titlepage}
+
+% --- CONTENUTO DELLE DISPENSE ---
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+
+
+\section{La misura delle grandezze}
+
+\subsection{Definizione}
+
+Una \textbf{classe di grandezze geometriche} è un insieme di enti geometrici in cui è possibile:
+
+\begin{itemize}
+    \item il confronto tra due qualsiasi elementi dell'insieme;
+    \item l'addizione, che gode della proprietà commutativa e associativa, che associa a due
+    elementi A e B dell'insieme l'elemento A+B appartenente all'insieme detto somma di A e B.
+\end{itemize}
+
+Le grandezze appartenenti ad una stessa classe si dicono \textbf{omogenee}.
+
+Sono classi di grandezze omogenee l'insieme dei segmenti, degli angoli, delle superfici piane.
+
+\subsection{Multiplo di una grandezza}
+
+Il multiplo di una grandezza A secondo il numero naturale \( n \) è la grandezza omogenea ad A:
+
+\[
+B = A + \ldots + A = nA \qquad (n \text{ addendi})
+\]
+
+Si dice anche che A è sottomultipla di B secondo il numero \( n \), oppure che A è l'ennesima parte
+di B, e si scrive:
+
+\[
+A = \frac{B}{n} = \frac{1}{n} B
+\]
+
+\medskip
+\begin{center}
+\begin{tikzpicture}[line width=1.2pt]
+    \draw (0,0) -- (3,0);
+    \filldraw (0,0) circle (2pt);
+    \filldraw (3,0) circle (2pt);
+    \node[below] at (1.5,0) {$A$};
+\end{tikzpicture}
+
+\textit{Segmento $A$}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[line width=1.2pt]
+    \draw (0,0) -- (6,0);
+    \filldraw (0,0) circle (2pt);
+    \filldraw (6,0) circle (2pt);
+    \filldraw (3,0) circle (2pt);
+    \node[below] at (3,0) {$B = 2A$};
+\end{tikzpicture}
+
+\textit{Segmento $B = 2A$}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[line width=1.2pt]
+    \draw (0,0) -- (6,0);
+    \filldraw (0,0) circle (2pt);
+    \filldraw (6,0) circle (2pt);
+
+    \draw (0,0.8) -- (3,0.8);
+    \filldraw (0,0.8) circle (2pt);
+    \filldraw (3,0.8) circle (2pt);
+
+    \node[above] at (1.5,0.8) {$A = \frac{1}{2}B$};
+\end{tikzpicture}
+
+\textit{$A$ come metà di $B$}
+\end{center}
+
+\section{Grandezze commensurabili}
+
+\begin{defin}
+Due grandezze omogenee A e B si dicono commensurabili quando \textbf{ammettono una grandezza sottomultipla comune}, cioè quando esiste una terza grandezza U (omogenea ad A e B) che è contenuta un numero intero di volte in ciascuna di esse, cioè tale che:
+$$A = m \cdot U, \quad B = n \cdot U \quad \text{con } m, n \in \mathbb{N}$$
+\end{defin}
+
+Quindi poiché
+$$B=n \cdot U \implies U=\frac{1}{n} B$$
+sostituendo si ha
+$$A=m \cdot \frac{1}{n} B=\frac{m}{n} B$$
+
+\subsection{Rapporto di grandezze commensurabili}
+
+Se $A = \frac{m}{n} B$ chiameremo rapporto tra A e B (e lo indicheremo con $\frac{A}{B}$) il numero razionale $\frac{m}{n}$.
+$$\frac{A}{B}=\frac{m}{n}$$
+Quindi \textbf{il rapporto tra due grandezze commensurabili è un numero razionale}.
+
+\begin{esempio}
+In figura sono disegnate due grandezze A e B tali che
+$$A = 3 \cdot U, \quad B = 2 \cdot U \implies \frac{A}{B} = \frac{3}{2}$$
+
+\begin{center}
+\begin{tikzpicture}[dot/.style={fill,circle,inner sep=1.5pt}, scale=1.0]
+    % Unità U
+    \coordinate (U1) at (0, 0);
+    \coordinate (U2) at (1.5, 0);
+    \draw[thick] (U1) -- (U2);
+    \node at (0.75, 0.25) {$U$};
+    \node[dot] at (U1) {};
+    \node[dot] at (U2) {};
+
+    % Grandezza A (3U)
+    \coordinate (A1) at (0, -1);
+    \coordinate (A2) at (4.5, -1);
+    \draw[thick] (A1) -- (A2);
+    \node at (-0.5, -1) {$\mathbf{A}$};
+    \node at (0.75, -0.8) {\tiny U};
+    \node at (2.25, -0.8) {\tiny U};
+    \node at (3.75, -0.8) {\tiny U};
+    \node[dot] at (A1) {};
+    \node[dot] at (1.5, -1) {};
+    \node[dot] at (3, -1) {};
+    \node[dot] at (A2) {};
+
+    % Grandezza B (2U)
+    \coordinate (B1) at (0, -2);
+    \coordinate (B2) at (3, -2);
+    \draw[thick] (B1) -- (B2);
+    \node at (-0.5, -2) {$\mathbf{B}$};
+    \node at (0.75, -1.8) {\tiny U};
+    \node at (2.25, -1.8) {\tiny U};
+    \node[dot] at (B1) {};
+    \node[dot] at (1.5, -2) {};
+    \node[dot] at (B2) {};
+\end{tikzpicture}
+\end{center}
+\end{esempio}
+
+\newpage
+
+\section{Grandezze incommensurabili}
+
+\begin{defin}
+Due grandezze omogenee A e B si dicono incommensurabili \textbf{quando non esiste una grandezza sottomultipla comune}.
+\end{defin}
+
+\begin{esempio}
+Dimostriamo che \textbf{il lato e la diagonale di un quadrato sono segmenti incommensurabili}.
+
+Consideriamo un quadrato ABCD e la sua diagonale AC.
+Supponiamo per assurdo che il lato AB e la diagonale AC siano segmenti commensurabili, cioè supponiamo che esista un segmento EF tale che $AB = n \cdot EF$, $AC = m \cdot EF$ (la figura è solo indicativa).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (3, 0);
+    \coordinate (C) at (3, 3);
+    \coordinate (D) at (0, 3);
+
+    % Quadrato ABCD con griglia (unità EF)
+    \draw[step=0.5, gray!60, thin] (0, 0) grid (3, 3);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % Diagonale AC
+    \draw[thick] (A) -- (C);
+
+    \node at (-0.3, -0.2) {A};
+    \node at (3.3, -0.2) {B};
+    \node at (3.3, 3.2) {C};
+    \node at (-0.3, 3.2) {D};
+\end{tikzpicture}
+\end{center}
+
+Applicando il teorema di Pitagora e contando il numero dei "quadratini" di lato congruente ad EF si dovrebbe avere:
+$$m^2 = 2n^2$$
+
+Ma questa uguaglianza non può essere vera perché se consideriamo la scomposizione in fattori primi, e in particolare quante volte compare il fattore 2, avremo che nel numero $m^2$ il fattore 2 o non compare mai o compare un numero pari di volte (essendo un quadrato), mentre in $2n^2$ il fattore 2 sarà presente un numero dispari di volte, perché c'è un 2 moltiplicato per $n^2$ in cui il 2 compare o nessuna volta o un numero pari di volte.
+
+In conclusione siamo arrivati ad una contraddizione e questo significa che i segmenti AB e AC non sono commensurabili.
+\end{esempio}
+
+\newpage
+
+\section{Nota storica}
+
+I primi matematici che parlarono di grandezze incommensurabili furono i \textbf{Pitagorici}: infatti applicando il teorema di Pitagora al triangolo rettangolo isoscele furono costretti, con ragionamenti analoghi a quelli che abbiamo visto, ad \textbf{ammettere l'esistenza di grandezze omogenee sprovviste di un sottomultiplo comune}.
+
+Invece essi pensavano che i segmenti fossero costituiti da un numero finito di punti e che quindi fossero tutti commensurabili tra loro. Inoltre ritenevano che tutti i corpi fossero costituiti da corpuscoli tutti uguali disposti in varie forme geometriche e consideravano l'interpretazione geometrica della realtà come un anello di congiunzione tra umano e divino.
+
+La \textbf{scoperta delle grandezze incommensurabili} sembrò quindi ai Pitagorici blasfema e sconcertante, tanto che fu \textbf{tenuta segreta} e fu proibito ai membri della setta di rivelarla.
+
+\section*{Rapporto di grandezze incommensurabili}
+
+Si può definire il rapporto tra due grandezze incommensurabili?
+
+Riprendiamo l'esempio del lato $l$ e della diagonale $d$ di un quadrato.
+Abbiamo che
+
+$$\begin{array}{lclcl}
+l < d < 2l & \rightarrow & 1 < \dfrac{d}{l} < 2 & \\[4pt]
+1{,}4l < d < 1{,}5l & \rightarrow & 1{,}4 < \dfrac{d}{l} < 1{,}5 & \\[4pt]
+1{,}41l < d < 1{,}42l & \rightarrow & 1{,}41 < \dfrac{d}{l} < 1{,}42 & \\[4pt]
+1{,}414l < d < 1{,}415l & \rightarrow & 1{,}414 < \dfrac{d}{l} < 1{,}415 & \\[4pt]
+\ldots & & \ldots &
+\end{array}$$
+
+Il numero $\frac{d}{l}$ è definito come "\textbf{elemento separatore}" dei due insiemi di numeri razionali
+$$1, \ 1{,}4, \ 1{,}41, \ 1{,}414, \ \ldots$$
+$$2, \ 1{,}5, \ 1{,}42, \ 1{,}415, \ \ldots$$
+che rappresentano i valori approssimati per difetto e per eccesso.
+
+Questo numero viene detto "\textbf{irrazionale}", cioè non razionale, e in questo caso viene indicato con il simbolo $\sqrt{2}$.
+
+In conclusione \textbf{se A e B sono grandezze incommensurabili il loro rapporto è un numero irrazionale}.
+
+\newpage
+
+\section{Misura di una grandezza}
+
+Se fissiamo una grandezza U come "\textbf{unità di misura}", la misura rispetto ad U di una grandezza A, omogenea con U, è il numero reale (razionale o irrazionale) che esprime il rapporto tra A e U e si indica con $\bar{A}$, cioè:
+$$\bar{A} = \frac{A}{U}$$
+
+\begin{nota}
+La misura di un segmento si dice "\textbf{lunghezza}", quella di un angolo si dice "\textbf{ampiezza}" e quella di una superficie piana "\textbf{area}".
+\end{nota}
+
+\begin{esempio}
+La lunghezza del segmento AB in figura, rispetto all'unità di misura U, è 4.
+
+\begin{center}
+\begin{tikzpicture}[dot/.style={fill,circle,inner sep=1.5pt}]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4, 0);
+
+    % Segmento U
+    \draw (0, -0.7) -- (1, -0.7);
+    \node at (0.5, -0.4) {U};
+
+    % Segmento AB
+    \draw[thick] (A) -- (B);
+    \node at (0, 0.3) {A};
+    \node at (4, 0.3) {B};
+    \node[dot] at (A) {};
+    \node[dot] at (B) {};
+    \node[dot] at (1, 0) {};
+    \node[dot] at (2, 0) {};
+    \node[dot] at (3, 0) {};
+
+    \draw [decorate, decoration={brace, amplitude=5pt, mirror, raise=4pt}] (0,0) -- (4,0)
+    node [midway, yshift=-15pt] {$\overline{AB}=4$};
+\end{tikzpicture}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+L'ampiezza dell'angolo $\alpha$, rispetto all'unità di misura U, è 3.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+    \coordinate (V) at (0, 0);
+    \draw (V) -- (2, 0); % Lato iniziale
+
+    \def\angleUnit{20}
+
+    \draw (V) -- (\angleUnit*3+5:3); % Lato finale dell'angolo alpha
+
+    % Unità U
+    \draw[dashed] (V) -- (\angleUnit:2.5);
+    \draw[dashed] (V) -- (\angleUnit*2:2.5);
+
+    % Arco e angolo alpha
+    \draw[->] (1, 0) arc (0:\angleUnit*3+5:1);
+    \node at (1.5, 0.7) {$\alpha$};
+
+    % Unità U isolata
+    \draw[thick] (V) -- (\angleUnit*4+10:3);
+    \draw[thick] (V) -- (\angleUnit*4+10+\angleUnit:3);
+    \draw[->] (2.5, 0) arc (\angleUnit*4+10:\angleUnit*4+10+\angleUnit:2.5);
+    \node at (\angleUnit*4+10+\angleUnit/2:3.2) {U};
+\end{tikzpicture}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+L'area della superficie della figura F, rispetto all'unità di misura U, è 16.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Grande Figura F (4x4 = 16 unità)
+    \draw[thick] (0, 0) rectangle (4, 4);
+
+    % Griglia per visualizzare le 16 unità
+    \draw[step=1, gray!60, thin] (0, 0) grid (4, 4);
+
+    % Unità U (in basso a sinistra)
+    \draw[thick] (0, 0) rectangle (1, 1);
+    \node at (0.5, 0.5) {U};
+
+    % Etichetta F
+    \node at (2, 3.5) {F};
+\end{tikzpicture}
+\end{center}
+\end{esempio}
+
+\newpage
+
+\section*{Proporzioni tra grandezze}
+
+\begin{defin}
+Due grandezze omogenee A e B (con $B \neq 0$) e altre due grandezze omogenee C e D (con $D \neq 0$) si dicono \textbf{in proporzione} quando il rapporto tra le prime due è uguale al rapporto tra la terza e la quarta, cioè:
+$$\frac{A}{B} = \frac{C}{D}$$
+Si scrive anche $A:B = C:D$ e si legge "\textbf{A sta a B come C sta a D}".
+Le quattro grandezze si dicono \textbf{termini} della proporzione e in particolare A e D si dicono \textbf{termini estremi} mentre B e C si dicono \textbf{termini medi}.
+\end{defin}
+
+\begin{nota}
+Se A, B, C sono tre grandezze omogenee tra loro e si ha:
+$$A:B = B:C$$
+la grandezza B si chiama \textbf{media proporzionale} tra A e C.
+\end{nota}
+
+\begin{oss}
+Si dimostra facilmente che se quattro grandezze sono in proporzione allora sono in proporzione anche le loro misure e viceversa.
+Questo ci permette di estendere le proprietà delle proporzioni tra numeri alle proporzioni tra grandezze.
+Ricordiamo la proprietà fondamentale delle proporzioni numeriche:
+``In una proporzione numerica $a:b=c:d$ \textbf{il prodotto dei termini medi è uguale al prodotto dei termini estremi}, cioè $a \cdot d = b \cdot c$'' (e viceversa se $a \cdot d = b \cdot c$ allora $a:b=c:d$).
+\end{oss}
+
+\newpage
+
+\begin{defin}
+Diciamo che due classi di grandezze sono in \textbf{corrispondenza biunivoca} quando è possibile associare ad ogni grandezza della prima classe una e una sola grandezza della seconda classe.
+\end{defin}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Classe 1
+    \draw[rounded corners, thick] (-2, 0) ellipse (1.5cm and 2cm);
+    \coordinate (R) at (-2, 1.5);
+    \coordinate (S) at (-2, 0.5);
+    \coordinate (C) at (-2, -0.5);
+    \coordinate (U) at (-2, -1.5);
+    \node[circle, fill, inner sep=1.5pt] at (R) {}; \node[left] at (R) {R};
+    \node[circle, fill, inner sep=1.5pt] at (S) {}; \node[left] at (S) {S};
+    \node[circle, fill, inner sep=1.5pt] at (C) {}; \node[left] at (C) {C};
+    \node[circle, fill, inner sep=1.5pt] at (U) {}; \node[left] at (U) {U};
+
+    % Classe 2
+    \draw[rounded corners, thick] (2, 0) ellipse (1.5cm and 2cm);
+    \coordinate (Rprimo) at (2, 1.5);
+    \coordinate (Sprimo) at (2, 0.5);
+    \coordinate (Cprimo) at (2, -0.5);
+    \coordinate (Uprimo) at (2, -1.5);
+    \node[circle, fill, inner sep=1.5pt] at (Rprimo) {}; \node[right] at (Rprimo) {R'};
+    \node[circle, fill, inner sep=1.5pt] at (Sprimo) {}; \node[right] at (Sprimo) {S'};
+    \node[circle, fill, inner sep=1.5pt] at (Cprimo) {}; \node[right] at (Cprimo) {C'};
+    \node[circle, fill, inner sep=1.5pt] at (Uprimo) {}; \node[right] at (Uprimo) {U'};
+
+    % Frecce (Corrispondenza biunivoca)
+    \draw[->, thick] (R) -- (Rprimo);
+    \draw[->, thick] (S) -- (Sprimo);
+    \draw[->, thick] (C) -- (Cprimo);
+    \draw[->, thick] (U) -- (Uprimo);
+
+    \draw[->, dashed] (Rprimo) -- (R);
+    \draw[->, dashed] (Sprimo) -- (S);
+    \draw[->, dashed] (Cprimo) -- (C);
+    \draw[->, dashed] (Uprimo) -- (U);
+\end{tikzpicture}
+\end{center}
+
+\begin{esempio}
+Se consideriamo, in un dato cerchio, l'insieme degli angoli al centro e l'insieme degli archi di circonferenza, possiamo associare ad ogni angolo al centro l'arco di circonferenza su cui insiste e osservare che si tratta di \textbf{una corrispondenza biunivoca}, poiché per ogni angolo al centro c'è uno ed un solo arco di circonferenza su cui insiste.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+    \coordinate (O) at (0, 0);
+    \draw (O) circle (2.5);
+    \node[circle, fill, inner sep=1.5pt] at (O) {}; \node[above right] at (O) {O};
+
+    \coordinate (A) at (90:2.5);
+    \coordinate (B) at (30:2.5);
+
+    \draw (O) -- (A);
+    \draw (O) -- (B);
+
+    \draw[->] (1.5, 0) arc (0:90:1.5);
+    \node at (60:1.8) {$\alpha$};
+
+    \draw[thick] (B) arc (30:90:2.5);
+    \node at (95:2.5) {A};
+    \node at (25:2.5) {B};
+
+    \node at (0, -3.5) {$\widehat{AOB} \to \text{arco} \ \widehat{AB}$};
+\end{tikzpicture}
+\end{center}
+\end{esempio}
+
+\begin{esempio}
+Se invece consideriamo, sempre in un dato cerchio, l'insieme degli angoli alla circonferenza e l'insieme degli archi di circonferenza ed associamo ad un angolo alla circonferenza l'arco di circonferenza su cui insiste, abbiamo che questa \textbf{non è una corrispondenza biunivoca}, poiché ad angoli alla circonferenza diversi (anche se di uguale ampiezza) viene associato lo stesso arco di circonferenza.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+    \coordinate (O) at (0, 0);
+    \draw (O) circle (2.5);
+
+    \coordinate (A) at (90:2.5);
+    \coordinate (B) at (300:2.5);
+    \coordinate (P) at (150:2.5);
+    \coordinate (Q) at (210:2.5);
+
+    \draw[thick] (A) arc (90:300:2.5);
+
+    % Angolo alpha
+    \draw (P) -- (A);
+    \draw (P) -- (B);
+    \draw[->] (P) ++ (150-15:0.5) arc (150-15:150-90+15:0.5);
+    \node at (180:1.2) {$\alpha$};
+
+    % Angolo beta
+    \draw (Q) -- (A);
+    \draw (Q) -- (B);
+    \draw[->] (Q) ++ (210+15:0.5) arc (210+15:210-90-15:0.5);
+    \node at (240:1.2) {$\beta$};
+
+    \node at (95:2.5) {A};
+    \node at (305:2.5) {B};
+    \node at (150:2.8) {P};
+    \node at (210:2.8) {Q};
+
+    \node at (0, -3.5) {$\alpha \to \text{arco} \ \widehat{AB}$, \quad $\beta \to \text{arco} \ \widehat{AB}$};
+\end{tikzpicture}
+\end{center}
+\end{esempio}
+
+\newpage
+
+\section*{Grandezze direttamente proporzionali}
+
+\begin{defin}
+Due classi di grandezze in corrispondenza biunivoca si dicono \textbf{direttamente proporzionali} quando il rapporto tra due qualunque grandezze della prima classe è uguale al rapporto tra le due grandezze corrispondenti della seconda classe, cioè:
+$$\forall \ A, B \ \text{se} \ A \to A', \ B \to B' \ \text{si ha} \ \frac{A}{B} = \frac{A'}{B'}$$
+\end{defin}
+
+\section*{Grandezze inversamente proporzionali}
+
+\begin{defin}
+Due classi di grandezze in corrispondenza biunivoca si dicono \textbf{inversamente proporzionali} quando il rapporto tra due qualunque grandezze della prima classe è uguale al reciproco del rapporto tra le due grandezze corrispondenti della seconda classe, cioè:
+$$\forall \ A, B \ \text{se} \ A \to A', \ B \to B' \ \text{si ha} \ \frac{A}{B} = \frac{B'}{A'}$$
+\end{defin}
+
+\begin{oss}
+In questo caso quindi è il prodotto delle misure di due grandezze corrispondenti ad essere costante, perché
+$$\frac{A}{B} = \frac{B'}{A'} \implies A \cdot A' = B \cdot B'$$
+\end{oss}
+
+\subsection*{Il criterio della proporzionalità diretta}
+
+Come possiamo stabilire se due classi di grandezze sono direttamente proporzionali?
+
+Si può dimostrare che condizione necessaria e sufficiente affinché due classi di grandezze in corrispondenza biunivoca siano direttamente proporzionali è che:
+\begin{itemize}
+    \item \textbf{a grandezze uguali di una classe corrispondano grandezze uguali dell'altra};
+    \item \textbf{alla somma di due grandezze qualsiasi di una classe corrisponda la somma delle grandezze corrispondenti dell'altra}.
+\end{itemize}
+
+\begin{esempio}
+Gli angoli al centro e gli archi di circonferenza corrispondenti sono un esempio di classi di grandezze direttamente proporzionali.
+
+Infatti ad angoli al centro uguali corrispondono archi sottesi uguali e alla somma di angoli al centro corrisponde un arco uguale alla somma degli archi sottesi corrispondenti.
+\end{esempio}
+
+\newpage
+
+\section{Teorema di Talete}
+
+Dimostriamo questo importante teorema riguardante le \textbf{classi di grandezze direttamente proporzionali}:
+
+\medskip
+\noindent\textbf{Teorema.} \textit{Se un fascio di rette parallele è intersecato da due trasversali, i segmenti individuati su una trasversale sono direttamente proporzionali ai segmenti individuati sull'altra trasversale.}
+\medskip
+
+Questo significa, per esempio, che se $a, b, c$ sono tre rette parallele e $r, s$ sono due trasversali (vedi figura) si ha
+$$\frac{\overline{AB}}{\overline{BC}} = \frac{\overline{A'B'}}{\overline{B'C'}}$$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Rette parallele a, b, c
+    \draw (0, 4) -- (5, 4); \node[left] at (0, 4) {a};
+    \draw (0, 2) -- (5, 2); \node[left] at (0, 2) {b};
+    \draw (0, 0) -- (5, 0); \node[left] at (0, 0) {c};
+
+    % Trasversale r
+    \draw (-0.5, 4.5) -- (2.5, -0.5); \node[above left] at (-0.5, 4.5) {r};
+
+    % Intersezioni su r
+    \coordinate (A) at (0.33, 4); \node[circle, fill, inner sep=1.5pt] at (A) {}; \node[above left] at (A) {A};
+    \coordinate (B) at (1.33, 2); \node[circle, fill, inner sep=1.5pt] at (B) {}; \node[below left] at (B) {B};
+    \coordinate (C) at (2.33, 0); \node[circle, fill, inner sep=1.5pt] at (C) {}; \node[below left] at (C) {C};
+
+    % Trasversale s
+    \draw (3, 4.5) -- (5.5, -0.5); \node[above right] at (3, 4.5) {s};
+
+    % Intersezioni su s
+    \coordinate (A_prime) at (3.5, 4); \node[circle, fill, inner sep=1.5pt] at (A_prime) {}; \node[above right] at (A_prime) {A'};
+    \coordinate (B_prime) at (4.5, 2); \node[circle, fill, inner sep=1.5pt] at (B_prime) {}; \node[below right] at (B_prime) {B'};
+    \coordinate (C_prime) at (5.5, 0); \node[circle, fill, inner sep=1.5pt] at (C_prime) {}; \node[below right] at (C_prime) {C'};
+
+    \draw[thick] (A) -- (B); \draw[thick] (B) -- (C);
+    \draw[thick] (A_prime) -- (B_prime); \draw[thick] (B_prime) -- (C_prime);
+\end{tikzpicture}
+\end{center}
+
+\subsection*{Dimostrazione}
+Osserviamo che:
+\begin{enumerate}
+    \item a segmenti congruenti su $r$ corrispondono segmenti congruenti su $s$;
+    \item \textbf{ad un segmento AB congruente alla somma dei segmenti CD e EF su r corrisponde su $s$ un segmento A'B' congruente alla somma dei segmenti C'D' e E'F' corrispondenti a CD e EF} (si dimostra facilmente tracciando dal punto P che divide AB nelle due parti congruenti a CD e EF la parallela del fascio passante per P).
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+    % Figura sinistra: segmenti congruenti su r e su s
+    \begin{scope}[shift={(0,0)}]
+        \draw[gray!60, thin] (0, 4) -- (4, 4);
+        \draw[gray!60, thin] (0, 2) -- (4, 2);
+        \draw[gray!60, thin] (0, 0) -- (4, 0);
+        \draw[gray!60, thin] (0, -2) -- (4, -2);
+
+        \draw[thick] (0, 5) -- (0, -3); \node[above] at (0, 5) {r};
+        \draw[thick] (4, 5) -- (4, -3); \node[above] at (4, 5) {s};
+
+        \coordinate (A) at (0, 4); \coordinate (B) at (0, 2); \coordinate (C) at (0, 0); \coordinate (D) at (0, -2);
+        \coordinate (A_p) at (4, 4); \coordinate (B_p) at (4, 2); \coordinate (C_p) at (4, 0); \coordinate (D_p) at (4, -2);
+
+        \node[circle,fill,inner sep=1.2pt] at (A) {}; \node[left] at (A) {A}; \node[circle,fill,inner sep=1.2pt] at (A_p) {}; \node[right] at (A_p) {A'};
+        \node[circle,fill,inner sep=1.2pt] at (B) {}; \node[left] at (B) {B}; \node[circle,fill,inner sep=1.2pt] at (B_p) {}; \node[right] at (B_p) {B'};
+        \node[circle,fill,inner sep=1.2pt] at (C) {}; \node[left] at (C) {C}; \node[circle,fill,inner sep=1.2pt] at (C_p) {}; \node[right] at (C_p) {C'};
+        \node[circle,fill,inner sep=1.2pt] at (D) {}; \node[left] at (D) {D}; \node[circle,fill,inner sep=1.2pt] at (D_p) {}; \node[right] at (D_p) {D'};
+    \end{scope}
+
+    % Figura destra: somma di segmenti
+    \begin{scope}[shift={(7,0)}]
+        \draw[gray!60, thin] (0, 4) -- (4, 4);
+        \draw[gray!60, thin] (0, 2) -- (4, 2);
+        \draw[gray!60, thin] (0, 1) -- (4, 1);
+        \draw[gray!60, thin] (0, 0) -- (4, 0);
+        \draw[gray!60, thin] (0, -2) -- (4, -2);
+
+        \draw[thick] (0.5, 5) -- (0.5, -3); \node[above] at (0.5, 5) {r};
+        \draw[thick] (4.5, 5) -- (4.5, -3); \node[above] at (4.5, 5) {s};
+
+        \coordinate (Ar) at (0.5, 4); \coordinate (Br) at (0.5, 2); \coordinate (Pr) at (0.5, 1); \coordinate (Cr) at (0.5, 0); \coordinate (Dr) at (0.5, -2);
+        \draw[thick] (Ar) -- (Br); \draw[thick] (Cr) -- (Dr);
+        \node[circle,fill,inner sep=1.2pt] at (Ar) {}; \node[left] at (Ar) {A};
+        \node[circle,fill,inner sep=1.2pt] at (Br) {}; \node[left] at (Br) {B};
+        \node[circle,fill,inner sep=1.2pt] at (Pr) {}; \node[left] at (Pr) {P};
+        \node[circle,fill,inner sep=1.2pt] at (Cr) {}; \node[left] at (Cr) {C};
+        \node[circle,fill,inner sep=1.2pt] at (Dr) {}; \node[left] at (Dr) {D};
+
+        \coordinate (As) at (4.5, 4); \coordinate (Bs) at (4.5, 2); \coordinate (Ps) at (4.5, 1); \coordinate (Cs) at (4.5, 0); \coordinate (Ds) at (4.5, -2);
+        \draw[thick] (As) -- (Bs); \draw[thick] (Cs) -- (Ds);
+        \node[circle,fill,inner sep=1.2pt] at (As) {}; \node[right] at (As) {A'};
+        \node[circle,fill,inner sep=1.2pt] at (Bs) {}; \node[right] at (Bs) {B'};
+        \node[circle,fill,inner sep=1.2pt] at (Ps) {}; \node[right] at (Ps) {P'};
+        \node[circle,fill,inner sep=1.2pt] at (Cs) {}; \node[right] at (Cs) {C'};
+        \node[circle,fill,inner sep=1.2pt] at (Ds) {}; \node[right] at (Ds) {D'};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+Quindi, per il criterio di proporzionalità diretta, i due insiemi di segmenti sono direttamente proporzionali.
+
+\end{document}

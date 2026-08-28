@@ -1,0 +1,290 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\geometry{margin=2.0cm}
+\usepackage{titlesec}
+
+\titlespacing*{\section}
+{0pt}{1ex}{0.5ex}
+
+\titlespacing*{\subsection}
+{0pt}{0.8ex}{0.3ex}
+\title{Scheda di Laboratorio\\
+Verifica delle Leggi di Ohm e di Kirchhoff}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Nome e cognome:} \rule{8cm}{0.4pt}
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Classe:} \rule{3cm}{0.4pt}
+\hfill
+\textbf{Data:} \rule{3cm}{0.4pt}
+
+\vspace{1cm}
+
+\section*{Obiettivi}
+
+L’esperienza ha lo scopo di:
+
+\begin{itemize}[itemsep=0pt, topsep=1pt]
+    \item verificare sperimentalmente la prima legge di Ohm;
+    \item verificare le leggi di Kirchhoff;
+    \item confrontare i valori teorici con quelli sperimentali;
+    \item utilizzare correttamente il multimetro per misure di tensione, corrente e resistenza.
+\end{itemize}
+
+\section*{Materiale}
+
+\begin{itemize}[itemsep=0pt, topsep=1pt]
+    \item alimentatore in corrente continua;
+    \item multimetro digitale;
+    \item tre resistenze;
+    \item cavetti di collegamento;
+    \item breadboard o basetta sperimentale.
+\end{itemize}
+
+\section*{Circuito}
+
+Realizzare un circuito costituito da:
+
+\begin{itemize}[itemsep=0pt, topsep=1pt]
+    \item una resistenza $R_1$ in serie;
+    \item due resistenze $R_2$ e $R_3$ in parallelo.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{verbatim}
+          R1
+ + ----/\/\/\----o----/\/\/\----|
+                   |     R2     |
+                   |            |
+                   ----/\/\/\----
+                        R3
+                   |
+ - ----------------|
+\end{verbatim}
+
+\section*{Richiami teorici}
+
+\subsection*{Prima legge di Ohm}
+
+\[
+V = RI
+\]
+
+\subsection*{Resistenze in parallelo}
+
+\[
+\frac{1}{R_p} = \frac{1}{R_2} + \frac{1}{R_3}
+\]
+
+\subsection*{Resistenza equivalente}
+
+\[
+R_{eq} = R_1 + R_p
+\]
+
+\subsection*{Corrente totale}
+
+\[
+I_{tot} = \frac{V_{alim}}{R_{eq}}
+\]
+
+\subsection*{Prima legge di Kirchhoff}
+
+\[
+I_{tot} = I_2 + I_3
+\]
+
+\subsection*{Seconda legge di Kirchhoff}
+
+\[
+V_{alim} = V_{R1} + V_p
+\]
+
+\section*{Parte teorica}
+
+Utilizzando i valori assegnati delle resistenze:
+
+\begin{enumerate}[itemsep=0pt, topsep=1pt]
+    \item calcolare la resistenza equivalente del parallelo;
+    \item calcolare la resistenza equivalente totale;
+    \item calcolare la corrente totale;
+    \item calcolare le correnti nei due rami;
+    \item calcolare le tensioni ai capi delle resistenze.
+\end{enumerate}
+
+
+
+\section*{Procedura sperimentale}
+
+\begin{enumerate}[itemsep=0pt, topsep=1pt]
+    \item Misurare con il multimetro il valore reale delle resistenze.
+    \item Realizzare il circuito assegnato.
+    \item Impostare la tensione dell’alimentatore.
+    \item Misurare:
+    \begin{itemize}[itemsep=0pt, topsep=1pt]
+        \item la tensione dell’alimentatore;
+        \item la tensione ai capi di $R_1$;
+        \item la tensione ai capi del parallelo;
+        \item la corrente totale;
+        \item la corrente in ciascun ramo.
+    \end{itemize}
+    \item Riportare i dati nelle tabelle.
+    \item Confrontare i dati teorici con quelli sperimentali.
+\end{enumerate}
+
+\section*{Errori strumentali}
+
+Assumere come errore strumentale:
+
+\[
+\Delta X = \pm \text{ultima cifra significativa}
+\]
+
+\vspace{0.5cm}
+
+\section*{Tabella 1 -- Misura delle resistenze}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Grandezza & Valore nominale & Valore misurato & Errore \\
+\hline
+$R_1$ & & & \\
+\hline
+$R_2$ & & & \\
+\hline
+$R_3$ & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\section*{Tabella 2 -- Valori teorici}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Grandezza & Valore teorico \\
+\hline
+$R_p$ & \\
+\hline
+$R_{eq}$ & \\
+\hline
+$I_{tot}$ & \\
+\hline
+$I_2$ & \\
+\hline
+$I_3$ & \\
+\hline
+$V_{R1}$ & \\
+\hline
+$V_p$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\section*{Tabella 3 -- Misure sperimentali}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Grandezza & Valore misurato & Errore \\
+\hline
+$V_{alim}$ & & \\
+\hline
+$V_{R1}$ & & \\
+\hline
+$V_p$ & & \\
+\hline
+$I_{tot}$ & & \\
+\hline
+$I_2$ & & \\
+\hline
+$I_3$ & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\section*{Verifica delle leggi di Kirchhoff}
+
+\subsection*{Legge dei nodi}
+
+\[
+I_2 + I_3 = \hspace{4cm}
+\]
+
+\[
+I_{tot} = \hspace{4cm}
+\]
+
+Compatibilità entro gli errori sperimentali:
+
+\vspace{0.3cm}
+
+\noindent
+$\fbox{\rule{0pt}{1.2ex}\hspace{1.2ex}}$ Sì \hspace{2cm} $\fbox{\rule{0pt}{1.2ex}\hspace{1.2ex}}$ No
+
+\vspace{1cm}
+
+\subsection*{Legge delle maglie}
+
+\[
+V_{R1} + V_p = \hspace{4cm}
+\]
+
+\[
+V_{alim} = \hspace{4cm}
+\]
+
+Compatibilità entro gli errori sperimentali:
+
+\vspace{0.3cm}
+
+\noindent
+$\square$ Sì \hspace{2cm} $\square$ No
+
+\vspace{1cm}
+
+\section*{Conclusioni}
+
+Rispondere alle seguenti domande:
+
+\begin{enumerate}[itemsep=0pt, topsep=1pt]
+    \item I valori sperimentali sono compatibili con quelli teorici?
+    \item Le leggi di Ohm e di Kirchhoff risultano verificate?
+    \item Quali sono le principali cause di errore sperimentale?
+    \item Le resistenze reali coincidono con i valori nominali?
+\end{enumerate}
+
+\vspace{2cm}
+
+\noindent
+\textbf{Osservazioni finali}
+
+\vspace{4cm}
+
+\end{document}

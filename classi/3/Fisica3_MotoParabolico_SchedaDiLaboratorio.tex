@@ -1,0 +1,143 @@
+\documentclass[11pt,a4paper]{article}
+
+% --------------------
+% Pacchetti
+% --------------------
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{setspace}
+
+\setstretch{1.15}
+
+% --------------------
+% Comandi utili
+% --------------------
+\newcommand{\checkbox}{\(\square\)}
+
+% --------------------
+% Documento
+% --------------------
+\begin{document}
+
+\begin{center}
+\textbf{\Large Liceo Scientifico ``Galileo Galilei'' -- San Donà di Piave (VE)}\\[0.2cm]
+\textbf{\large Laboratorio di Fisica -- Scheda di Progettazione}\\[0.4cm]
+\end{center}
+
+\noindent
+\textbf{Classe:} II / III \hfill
+\textbf{Durata:} 1 ore di laboratorio + 1 ora di rielaborazione dati + redazione della relazione.
+
+\vspace{0.4cm}
+
+\section*{Titolo}
+\textbf{Analisi del moto parabolico attraverso la video--analisi con Tracker}
+
+\section*{Obiettivi di apprendimento}
+Al termine dell’attività lo studente sarà in grado di:
+\begin{itemize}
+    \item riconoscere le caratteristiche del moto parabolico come combinazione di due moti indipendenti:
+    \begin{itemize}
+        \item moto rettilineo uniforme (componente orizzontale);
+        \item moto uniformemente accelerato (componente verticale);
+    \end{itemize}
+    \item utilizzare il software \textit{Tracker} per analizzare un video reale e ricavare dati cinematici
+    (posizione, velocità, accelerazione);
+    \item confrontare i dati sperimentali con i modelli teorici;
+    \item sviluppare capacità di lavoro cooperativo e di comunicazione scientifica sintetica;
+    \item riflettere sul proprio percorso di apprendimento (autovalutazione).
+\end{itemize}
+
+\section*{Strumenti e materiali}
+\begin{itemize}
+    \item PC o notebook con \textit{Tracker} installato;
+    \item video preregistrato o registrato in classe di un moto parabolico (es. pallina lanciata in orizzontale);
+    \item fogli di calcolo (Excel, Google Sheets) per l’elaborazione dei dati;
+    \item scheda di progetto e scheda di autovalutazione.
+\end{itemize}
+
+\section*{Fasi del lavoro}
+
+\subsection*{1. Creazione del video sperimentale (20 minuti)}
+L’attività laboratoriale inizia con la produzione autonoma del video del moto parabolico, che costituirà il dato sperimentale da analizzare.
+
+\begin{itemize}
+    \item Registrazione del moto tramite \textbf{telefono cellulare}.
+    \item Trasferimento del file video sul PC per l’analisi tramite il software \textit{Tracker}.
+\end{itemize}
+
+Durante la fase di registrazione del video è necessario rispettare le seguenti accortezze sperimentali:
+
+\begin{itemize}
+    \item \textbf{Definizione dell’unità di misura:} fissare sul muro (preferibilmente bianco) una scala metrica utilizzando scotch di carta, in modo da disporre di un riferimento per la calibrazione delle distanze.
+    \item \textbf{Condizioni del moto:} lanciare la pallina in modo da realizzare un moto parabolico ben visibile, evitando urti o rotazioni anomale.
+    \item \textbf{Qualità della registrazione:} mantenere il cellulare ben fermo durante la ripresa, evitando movimenti o vibrazioni che possano compromettere l’analisi.
+    \item \textbf{Inquadratura:} assicurarsi che l’intera traiettoria del moto rientri nel campo visivo della videocamera.
+\end{itemize}
+
+\subsection*{2. Analisi del moto tramite Tracker (30 minuti)}
+Una volta acquisito il video, si procede all’analisi quantitativa del moto mediante il software \textit{Tracker}.
+
+\begin{itemize}
+    \item Importazione del video all’interno di \textit{Tracker}.
+    \item Definizione del sistema di riferimento cartesiano.
+    \item Calibrazione delle distanze utilizzando l’unità di misura fissata sul muro.
+    \item Marcatura della traiettoria punto per punto.
+    \item Raccolta dei dati cinematici: coordinate $x$, $y$ e tempo.
+\end{itemize}
+
+Analisi dei grafici forniti dal software:
+\begin{itemize}
+    \item $x(t)$: verifica della linearità della componente orizzontale (moto rettilineo uniforme);
+    \item $y(t)$: verifica della legge oraria del moto uniformemente accelerato;
+    \item traiettoria $y(x)$: verifica dell’andamento parabolico.
+\end{itemize}
+
+\subsection*{3. Analisi dei dati e rielaborazione di gruppo (2 ore in classe)}
+I dati ottenuti tramite il software \textit{Tracker} vengono esportati e rielaborati dal gruppo di lavoro al fine di confrontare il modello teorico con il comportamento sperimentale del sistema.
+
+\begin{itemize}
+    \item Esportazione dei dati cinematici ($x$, $y$, $t$) da \textit{Tracker} in un foglio di calcolo
+    (Excel, Google Sheets o software equivalente).
+    \item Rielaborazione dei dati:
+    \begin{itemize}
+        \item organizzazione delle misure in tabelle;
+        \item costruzione dei grafici $x(t)$, $y(t)$ e $y(x)$;
+        \item individuazione dei parametri caratteristici del moto.
+    \end{itemize}
+    \item Selezione di almeno \textbf{quattro punti} significativi della traiettoria.
+    \item Calcolo dei valori teorici corrispondenti sulla base delle leggi del moto parabolico.
+    \item Confronto tra valori sperimentali e teorici.
+    \item Calcolo e discussione degli scostamenti percentuali, con particolare attenzione alle possibili fonti di errore sperimentale.
+\end{itemize}
+
+
+\subsection*{4. Redazione della relazione di laboratorio (2 ore)}
+Al termine dell’analisi dei dati, ogni gruppo procede alla redazione di una relazione di laboratorio strutturata, seguendo lo schema condiviso dal docente.
+
+La relazione dovrà documentare in modo chiaro e rigoroso l’intero percorso svolto, dal contesto sperimentale all’interpretazione dei risultati, evidenziando il confronto tra modello teorico e dati sperimentali.
+
+In particolare, la relazione dovrà includere:
+\begin{itemize}
+    \item \textbf{Introduzione e obiettivo dell’esperienza:} descrizione del fenomeno studiato e finalità dell’attività.
+    \item \textbf{Descrizione dell’apparato sperimentale e della procedura:} modalità di acquisizione del video e condizioni sperimentali adottate.
+    \item \textbf{Analisi dei dati:} presentazione delle tabelle e dei grafici ottenuti tramite il foglio di calcolo.
+    \item \textbf{Confronto teorico--sperimentale:} validazione del modello del moto parabolico attraverso il confronto tra valori teorici e sperimentali.
+    \item \textbf{Discussione degli errori:} analisi critica degli scostamenti e delle principali fonti di incertezza.
+    \item \textbf{Conclusioni:} sintesi dei risultati e riflessione sul significato fisico dell’esperienza.
+\end{itemize}
+
+
+
+\end{document}
