@@ -537,96 +537,115 @@ Dimostriamo questo importante teorema riguardante le \textbf{classi di grandezze
 \medskip
 \noindent\textbf{Teorema.} \textit{Se un fascio di rette parallele è intersecato da due trasversali, i segmenti individuati su una trasversale sono direttamente proporzionali ai segmenti individuati sull'altra trasversale.}
 \medskip
+\subsection*{Teorema di Talete}
 
-Questo significa, per esempio, che se $a, b, c$ sono tre rette parallele e $r, s$ sono due trasversali (vedi figura) si ha
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+    \coordinate (V) at (2, 9);
+    \coordinate (A) at (2.5, 6);
+    \coordinate (B) at (3, 3);
+    \coordinate (C) at (3.5, 0);
+    \coordinate (Ap) at (4, 6);
+    \coordinate (Bp) at (6, 3);
+    \coordinate (Cp) at (8, 0);
+
+    % Rette parallele a, b, c
+    \draw (1.3, 6) -- (9, 6); \node[left] at (1.3, 6) {$a$};
+    \draw (1.3, 3) -- (9, 3); \node[left] at (1.3, 3) {$b$};
+    \draw (1.3, 0) -- (9, 0); \node[left] at (1.3, 0) {$c$};
+
+    % Trasversali r, s (non parallele: si incontrano in V)
+    \draw[thick] (V) -- (C); \node[above left] at (V) {$V$};
+    \draw[thick] (V) -- (Cp);
+    \node[left] at ($(A)!0.4!(C)$) {$r$};
+    \node[right] at ($(Ap)!0.4!(Cp)$) {$s$};
+
+    \node[circle, fill, inner sep=1.3pt] at (V) {};
+    \node[circle, fill, inner sep=1.3pt] at (A) {}; \node[left] at (A) {$A$};
+    \node[circle, fill, inner sep=1.3pt] at (B) {}; \node[left] at (B) {$B$};
+    \node[circle, fill, inner sep=1.3pt] at (C) {}; \node[left] at (C) {$C$};
+    \node[circle, fill, inner sep=1.3pt] at (Ap) {}; \node[right] at (Ap) {$A'$};
+    \node[circle, fill, inner sep=1.3pt] at (Bp) {}; \node[right] at (Bp) {$B'$};
+    \node[circle, fill, inner sep=1.3pt] at (Cp) {}; \node[right] at (Cp) {$C'$};
+\end{tikzpicture}
+\end{center}
+
+\medskip
+\noindent\textbf{Teorema.} \textit{Se un fascio di rette parallele è intersecato da due trasversali, i segmenti individuati su una trasversale sono direttamente proporzionali ai segmenti individuati sull'altra trasversale.}
+\medskip
+
+Questo significa, per esempio, che se $a, b, c$ sono tre rette parallele e $r, s$ sono due trasversali che le incontrano rispettivamente nei punti $A,B,C$ e $A',B',C'$ (vedi figura), si ha
 $$\frac{\overline{AB}}{\overline{BC}} = \frac{\overline{A'B'}}{\overline{B'C'}}$$
+
+\subsubsection*{Dimostrazione}
+
+Supponiamo dapprima che $r$ ed $s$ non siano parallele: prolungandole, se necessario, esse si incontrano allora in un punto $V$ (come in figura). Il caso $r \parallel s$ è trattato a parte, alla fine.
+
+\paragraph{Un lemma.} Dimostriamo il teorema per due sole rette del fascio, ad esempio $a$ e $b$: mostriamo cioè che
+$$\overline{VA} : \overline{VB} = \overline{VA'} : \overline{VB'}$$
 
 \begin{center}
 \begin{tikzpicture}[scale=0.9]
-    % Rette parallele a, b, c
-    \draw (0, 4) -- (5, 4); \node[left] at (0, 4) {a};
-    \draw (0, 2) -- (5, 2); \node[left] at (0, 2) {b};
-    \draw (0, 0) -- (5, 0); \node[left] at (0, 0) {c};
+    \coordinate (V) at (0, 4);
+    \coordinate (B) at (2, 0);
+    \coordinate (Bp) at (6, 1);
+    \coordinate (A) at (1, 2);
+    \coordinate (Ap) at (3, 2.5);
 
-    % Trasversale r
-    \draw (-0.5, 4.5) -- (2.5, -0.5); \node[above left] at (-0.5, 4.5) {r};
+    \draw[thick] (V) -- (B); \node[below left] at (V) {$V$};
+    \draw[thick] (V) -- (Bp);
+    \draw (A) -- (Ap); % retta a
+    \draw (B) -- (Bp); % retta b
 
-    % Intersezioni su r
-    \coordinate (A) at (0.33, 4); \node[circle, fill, inner sep=1.5pt] at (A) {}; \node[above left] at (A) {A};
-    \coordinate (B) at (1.33, 2); \node[circle, fill, inner sep=1.5pt] at (B) {}; \node[below left] at (B) {B};
-    \coordinate (C) at (2.33, 0); \node[circle, fill, inner sep=1.5pt] at (C) {}; \node[below left] at (C) {C};
+    % diagonali
+    \draw[dashed] (A) -- (Bp);
+    \draw[dashed] (Ap) -- (B);
 
-    % Trasversale s
-    \draw (3, 4.5) -- (5.5, -0.5); \node[above right] at (3, 4.5) {s};
-
-    % Intersezioni su s
-    \coordinate (A_prime) at (3.5, 4); \node[circle, fill, inner sep=1.5pt] at (A_prime) {}; \node[above right] at (A_prime) {A'};
-    \coordinate (B_prime) at (4.5, 2); \node[circle, fill, inner sep=1.5pt] at (B_prime) {}; \node[below right] at (B_prime) {B'};
-    \coordinate (C_prime) at (5.5, 0); \node[circle, fill, inner sep=1.5pt] at (C_prime) {}; \node[below right] at (C_prime) {C'};
-
-    \draw[thick] (A) -- (B); \draw[thick] (B) -- (C);
-    \draw[thick] (A_prime) -- (B_prime); \draw[thick] (B_prime) -- (C_prime);
+    \node[circle, fill, inner sep=1.3pt] at (V) {};
+    \node[circle, fill, inner sep=1.3pt] at (A) {}; \node[above left] at (A) {$A$};
+    \node[circle, fill, inner sep=1.3pt] at (Ap) {}; \node[above right] at (Ap) {$A'$};
+    \node[circle, fill, inner sep=1.3pt] at (B) {}; \node[below] at (B) {$B$};
+    \node[circle, fill, inner sep=1.3pt] at (Bp) {}; \node[right] at (Bp) {$B'$};
+    \node[left] at (0.5,3) {$a$};
+    \node[below right] at (4,0.5) {$b$};
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Dimostrazione}
-Osserviamo che:
+Congiungiamo $A$ con $B'$ e $A'$ con $B$ (diagonali del trapezio $AA'B'B$, che ha $\overline{AA'} \parallel \overline{BB'}$ perché entrambi i segmenti appartengono a rette del fascio, $a$ e $b$, che sono parallele).
+
 \begin{enumerate}
-    \item a segmenti congruenti su $r$ corrispondono segmenti congruenti su $s$;
-    \item \textbf{ad un segmento AB congruente alla somma dei segmenti CD e EF su r corrisponde su $s$ un segmento A'B' congruente alla somma dei segmenti C'D' e E'F' corrispondenti a CD e EF} (si dimostra facilmente tracciando dal punto P che divide AB nelle due parti congruenti a CD e EF la parallela del fascio passante per P).
+\item I triangoli $AA'B$ e $AA'B'$ hanno la stessa base $AA'$ e i vertici $B,B'$ equidistanti dalla retta $a$ (perché $B, B'$ appartengono entrambi alla retta $b$, parallela ad $a$): hanno quindi la stessa area,
+$$\text{Area}(AA'B) = \text{Area}(AA'B')$$
+\item I triangoli $VAA'$ e $BAA'$ hanno lo stesso vertice $A'$ e basi $VA$, $AB$ sulla stessa retta $r$: le loro aree stanno quindi come le basi,
+$$\frac{\text{Area}(VAA')}{\text{Area}(BAA')} = \frac{\overline{VA}}{\overline{AB}}$$
+\item Analogamente, i triangoli $VA'A$ e $B'A'A$ hanno lo stesso vertice $A$ e basi $VA'$, $A'B'$ sulla stessa retta $s$:
+$$\frac{\text{Area}(VA'A)}{\text{Area}(B'A'A)} = \frac{\overline{VA'}}{\overline{A'B'}}$$
 \end{enumerate}
 
-\begin{center}
-\begin{tikzpicture}[scale=0.7]
-    % Figura sinistra: segmenti congruenti su r e su s
-    \begin{scope}[shift={(0,0)}]
-        \draw[gray!60, thin] (0, 4) -- (4, 4);
-        \draw[gray!60, thin] (0, 2) -- (4, 2);
-        \draw[gray!60, thin] (0, 0) -- (4, 0);
-        \draw[gray!60, thin] (0, -2) -- (4, -2);
+Ma $\text{Area}(VAA') = \text{Area}(VA'A)$ (è lo stesso triangolo) e, per il punto 1, $\text{Area}(BAA')=\text{Area}(B'A'A)$: dai punti 2 e 3 segue allora
+$$\frac{\overline{VA}}{\overline{AB}} = \frac{\overline{VA'}}{\overline{A'B'}}$$
 
-        \draw[thick] (0, 5) -- (0, -3); \node[above] at (0, 5) {r};
-        \draw[thick] (4, 5) -- (4, -3); \node[above] at (4, 5) {s};
+Poniamo $k = \dfrac{\overline{VA}}{\overline{AB}} = \dfrac{\overline{VA'}}{\overline{A'B'}}$, cioè $\overline{VA}=k\cdot\overline{AB}$ e $\overline{VA'}=k\cdot\overline{A'B'}$. Allora
+$$\overline{VB}=\overline{VA}+\overline{AB}=(k+1)\overline{AB}, \qquad \overline{VB'}=\overline{VA'}+\overline{A'B'}=(k+1)\overline{A'B'}$$
+e quindi
+$$\frac{\overline{VA}}{\overline{VB}}=\frac{k\cdot\overline{AB}}{(k+1)\overline{AB}}=\frac{k}{k+1}=\frac{k\cdot\overline{A'B'}}{(k+1)\overline{A'B'}}=\frac{\overline{VA'}}{\overline{VB'}}$$
+cioè $\overline{VA}:\overline{VB}=\overline{VA'}:\overline{VB'}$, che è quanto volevamo dimostrare per le due rette $a,b$.
 
-        \coordinate (A) at (0, 4); \coordinate (B) at (0, 2); \coordinate (C) at (0, 0); \coordinate (D) at (0, -2);
-        \coordinate (A_p) at (4, 4); \coordinate (B_p) at (4, 2); \coordinate (C_p) at (4, 0); \coordinate (D_p) at (4, -2);
+\paragraph{Conclusione della dimostrazione.} Applichiamo il lemma appena dimostrato:
+\begin{itemize}
+    \item alla coppia di rette $a,b$: si ottiene $\overline{VA}:\overline{VB} = \overline{VA'}:\overline{VB'}$; poniamo $k$ il valore comune di questo rapporto;
+    \item alla coppia di rette $b,c$ (lo stesso ragionamento, applicato questa volta a $b,c$ anziché $a,b$): si ottiene $\overline{VB}:\overline{VC} = \overline{VB'}:\overline{VC'}$; poniamo $h$ il valore comune di questo rapporto.
+\end{itemize}
 
-        \node[circle,fill,inner sep=1.2pt] at (A) {}; \node[left] at (A) {A}; \node[circle,fill,inner sep=1.2pt] at (A_p) {}; \node[right] at (A_p) {A'};
-        \node[circle,fill,inner sep=1.2pt] at (B) {}; \node[left] at (B) {B}; \node[circle,fill,inner sep=1.2pt] at (B_p) {}; \node[right] at (B_p) {B'};
-        \node[circle,fill,inner sep=1.2pt] at (C) {}; \node[left] at (C) {C}; \node[circle,fill,inner sep=1.2pt] at (C_p) {}; \node[right] at (C_p) {C'};
-        \node[circle,fill,inner sep=1.2pt] at (D) {}; \node[left] at (D) {D}; \node[circle,fill,inner sep=1.2pt] at (D_p) {}; \node[right] at (D_p) {D'};
-    \end{scope}
+Da $\overline{VB}=h\cdot\overline{VC}$ e $\overline{VA}=k\cdot\overline{VB}=kh\cdot\overline{VC}$ (e analogamente $\overline{VB'}=h\cdot\overline{VC'}$, $\overline{VA'}=kh\cdot\overline{VC'}$) ricaviamo
+$$\overline{AB}=\overline{VB}-\overline{VA}=h(1-k)\,\overline{VC}, \qquad \overline{BC}=\overline{VC}-\overline{VB}=(1-h)\,\overline{VC}$$
+$$\overline{A'B'}=\overline{VB'}-\overline{VA'}=h(1-k)\,\overline{VC'}, \qquad \overline{B'C'}=\overline{VC'}-\overline{VB'}=(1-h)\,\overline{VC'}$$
+Quindi
+$$\frac{\overline{AB}}{\overline{BC}} = \frac{h(1-k)\,\overline{VC}}{(1-h)\,\overline{VC}} = \frac{h(1-k)}{1-h} = \frac{h(1-k)\,\overline{VC'}}{(1-h)\,\overline{VC'}} = \frac{\overline{A'B'}}{\overline{B'C'}}$$
+che è la tesi del teorema.
 
-    % Figura destra: somma di segmenti
-    \begin{scope}[shift={(7,0)}]
-        \draw[gray!60, thin] (0, 4) -- (4, 4);
-        \draw[gray!60, thin] (0, 2) -- (4, 2);
-        \draw[gray!60, thin] (0, 1) -- (4, 1);
-        \draw[gray!60, thin] (0, 0) -- (4, 0);
-        \draw[gray!60, thin] (0, -2) -- (4, -2);
-
-        \draw[thick] (0.5, 5) -- (0.5, -3); \node[above] at (0.5, 5) {r};
-        \draw[thick] (4.5, 5) -- (4.5, -3); \node[above] at (4.5, 5) {s};
-
-        \coordinate (Ar) at (0.5, 4); \coordinate (Br) at (0.5, 2); \coordinate (Pr) at (0.5, 1); \coordinate (Cr) at (0.5, 0); \coordinate (Dr) at (0.5, -2);
-        \draw[thick] (Ar) -- (Br); \draw[thick] (Cr) -- (Dr);
-        \node[circle,fill,inner sep=1.2pt] at (Ar) {}; \node[left] at (Ar) {A};
-        \node[circle,fill,inner sep=1.2pt] at (Br) {}; \node[left] at (Br) {B};
-        \node[circle,fill,inner sep=1.2pt] at (Pr) {}; \node[left] at (Pr) {P};
-        \node[circle,fill,inner sep=1.2pt] at (Cr) {}; \node[left] at (Cr) {C};
-        \node[circle,fill,inner sep=1.2pt] at (Dr) {}; \node[left] at (Dr) {D};
-
-        \coordinate (As) at (4.5, 4); \coordinate (Bs) at (4.5, 2); \coordinate (Ps) at (4.5, 1); \coordinate (Cs) at (4.5, 0); \coordinate (Ds) at (4.5, -2);
-        \draw[thick] (As) -- (Bs); \draw[thick] (Cs) -- (Ds);
-        \node[circle,fill,inner sep=1.2pt] at (As) {}; \node[right] at (As) {A'};
-        \node[circle,fill,inner sep=1.2pt] at (Bs) {}; \node[right] at (Bs) {B'};
-        \node[circle,fill,inner sep=1.2pt] at (Ps) {}; \node[right] at (Ps) {P'};
-        \node[circle,fill,inner sep=1.2pt] at (Cs) {}; \node[right] at (Cs) {C'};
-        \node[circle,fill,inner sep=1.2pt] at (Ds) {}; \node[right] at (Ds) {D'};
-    \end{scope}
-\end{tikzpicture}
-\end{center}
-
-Quindi, per il criterio di proporzionalità diretta, i due insiemi di segmenti sono direttamente proporzionali.
+\begin{oss}
+Se invece $r \parallel s$, la dimostrazione è ancora più semplice: poiché $\overline{AB}$ e $\overline{A'B'}$ appartengono a rette parallele ($r$ ed $s$) e $\overline{AA'}$, $\overline{BB'}$ appartengono anch'essi a rette parallele ($a$ e $b$), il quadrilatero $ABB'A'$ è un parallelogramma, quindi $\overline{AB}\cong\overline{A'B'}$. Allo stesso modo $\overline{BC}\cong\overline{B'C'}$. I due rapporti $\overline{AB}:\overline{BC}$ e $\overline{A'B'}:\overline{B'C'}$ sono dunque uguali, anzi sono formati da segmenti a due a due congruenti.
+\end{oss}
 
 \end{document}
