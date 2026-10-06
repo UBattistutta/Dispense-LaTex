@@ -1,0 +1,193 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tabularx,array,booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\DeclareMathOperator{\arccot}{arccot}
+\newcommand{\risp}{\vspace{2pt}\noindent\textbf{Soluzione.}\ }
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\griglia}[1]{%
+\begin{tikzpicture}[scale=0.75]
+\draw[step=0.5,gray!30,very thin] (-4,-2.5) grid (4,4);
+\draw[->] (-4,0) -- (4.2,0) node[right]{\small $x$};
+\draw[->] (0,-2.5) -- (0,4.2) node[above]{\small $y$};
+\node[below left] at (0,0) {\scriptsize $O$};
+\node at (-2.4,3.6) {\small #1};
+\end{tikzpicture}}
+\newcommand{\vuoto}{\hspace{1.4cm}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Le funzioni goniometriche inverse}\\[3pt]
+Scheda di lavoro -- Classe quarta \qquad Liceo Scientifico ``G. Galilei''\\[6pt]
+Nome e cognome \rule{6cm}{0.4pt} \qquad Data \rule{3cm}{0.4pt}
+\end{center}
+
+\noindent\textbf{Ricorda.} Una funzione \`e invertibile se \`e biiettiva. Il grafico di $f^{-1}$ si ottiene da quello di $f$ scambiando le coordinate di ogni punto, cio\`e con la simmetria rispetto alla bisettrice $y=x$. Usa sempre \textbf{la stessa unit\`a di misura sui due assi} (suggerimento: $1=2$ quadretti, quindi $\tfrac{\pi}{2}\approx 3$ quadretti).
+
+\section*{Parte A -- Costruiamo i grafici (in classe)}
+
+\subsection*{A.1 Arcoseno}
+Restringiamo il seno all'intervallo $\left[-\tfrac{\pi}{2},\tfrac{\pi}{2}\right]$. Completa la tabella, poi scambia le coordinate.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{7}{c|}}
+\hline
+$x$ & $-\frac{\pi}{2}$ & $-\frac{\pi}{3}$ & $-\frac{\pi}{6}$ & $0$ & $\frac{\pi}{6}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$\\\hline
+$\sin x$ & \vuoto&\vuoto&\vuoto&\vuoto&\vuoto&\vuoto&\vuoto\\\hline
+\end{tabular}
+\end{center}
+Scambiando le due righe ottieni i punti del grafico di $y=\arcsin x$. Disegna nello stesso riferimento $y=\sin x$ (ristretta), la bisettrice $y=x$ e $y=\arcsin x$.
+
+\subsection*{A.2 Arcocoseno}
+Perch\'e per il coseno \emph{non} va bene l'intervallo $\left[-\tfrac{\pi}{2},\tfrac{\pi}{2}\right]$?\\[2pt] \rule{\textwidth}{0.4pt}
+
+Restringiamo il coseno a $[0,\pi]$:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{7}{c|}}
+\hline
+$x$ & $0$ & $\frac{\pi}{6}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$ & $\frac{2\pi}{3}$ & $\frac{5\pi}{6}$ & $\pi$\\\hline
+$\cos x$ & \vuoto&\vuoto&\vuoto&\vuoto&\vuoto&\vuoto&\vuoto\\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\griglia{A.1} \qquad \griglia{A.2}
+\end{center}
+
+\subsection*{A.3 Arcotangente e arcocotangente}
+Restringiamo la tangente a $\left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right)$ e la cotangente a $(0,\pi)$.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{5}{c|}}
+\hline
+$x$ & $-\frac{\pi}{3}$ & $-\frac{\pi}{4}$ & $0$ & $\frac{\pi}{4}$ & $\frac{\pi}{3}$\\\hline
+$\tan x$ & \vuoto&\vuoto&\vuoto&\vuoto&\vuoto\\\hline
+\end{tabular}
+\qquad
+\begin{tabular}{|c|*{5}{c|}}
+\hline
+$x$ & $\frac{\pi}{6}$ & $\frac{\pi}{4}$ & $\frac{\pi}{2}$ & $\frac{3\pi}{4}$ & $\frac{5\pi}{6}$\\\hline
+$\cot x$ & \vuoto&\vuoto&\vuoto&\vuoto&\vuoto\\\hline
+\end{tabular}
+\end{center}
+Che cosa diventano gli asintoti verticali $x=\pm\tfrac{\pi}{2}$ della tangente nel grafico dell'arcotangente? \rule{4.5cm}{0.4pt}
+
+\begin{center}
+\griglia{$\arctan$} \qquad \griglia{$\operatorname{arccot}$}
+\end{center}
+
+\subsection*{A.4 Tabella riassuntiva}
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|l|p{2.6cm}|p{2.6cm}|p{2.6cm}|p{2.6cm}|}
+\hline
+ & $y=\arcsin x$ & $y=\arccos x$ & $y=\arctan x$ & $y=\arccot x$\\\hline
+Dominio & & & & \\\hline
+Codominio & & & & \\\hline
+Monotonia & & & & \\\hline
+Simmetrie & & & & \\\hline
+Asintoti & & & & \\\hline
+\end{tabular}
+\end{center}
+
+\section*{Parte B -- Valori e composizioni (in classe, a coppie)}
+\begin{enumerate}[label=\textbf{B.\arabic*}]
+\item Calcola:
+\begin{enumerate}[label=\alph*), itemsep=2pt]
+\begin{minipage}[t]{0.42\textwidth}
+\item $\arcsin\frac12$
+\item $\arcsin\left(-\frac{\sqrt3}{2}\right)$
+\item $\arccos\left(-\frac{\sqrt2}{2}\right)$
+\item $\arccos 0$
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+\item $\arctan\left(-\sqrt3\right)$
+\item $\arctan 1$
+\item $\arccot(-1)$
+\item $\arccot\sqrt3$
+\end{minipage}
+\end{enumerate}
+
+\item Calcola, se possibile. \emph{Attenzione: il risultato di una funzione inversa deve stare nel suo codominio!}
+\begin{enumerate}[label=\alph*), itemsep=2pt]
+\begin{minipage}[t]{0.42\textwidth}
+\item $\sin\left(\arcsin\frac13\right)$
+\item $\arcsin\left(\sin\frac{5\pi}{6}\right)$
+\item $\arccos\left(\cos\left(-\frac{\pi}{3}\right)\right)$
+\item $\arctan\left(\tan\frac{3\pi}{4}\right)$
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+\item $\cos\left(\arcsin\frac35\right)$
+\item $\tan\left(\arccos\left(-\frac12\right)\right)$
+\item $\sin\left(\arcsin 2\right)$
+\item[$\ast$h)] $\sin\left(\arctan 2\right)$
+\end{minipage}
+\end{enumerate}
+\end{enumerate}
+
+\section*{Parte C -- Domini (a casa)}
+Determina il dominio delle seguenti funzioni.
+\begin{enumerate}[label=\alph*), itemsep=3pt]
+\begin{minipage}[t]{0.42\textwidth}
+\item $y=\arcsin(2x-1)$
+\item $y=\arccos\left(x^2-1\right)$
+\item $y=\arctan\dfrac{1}{x-2}$
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+\item $y=\sqrt{\arcsin x}$
+\item $y=\arccot\sqrt{x}$
+\item[$\ast$f)] $y=\arcsin\dfrac{x+1}{x-1}$
+\end{minipage}
+\end{enumerate}
+
+\section*{Parte D -- Grafici deducibili (a casa)}
+Partendo dai grafici della parte A, disegna con le trasformazioni geometriche note e indica dominio e codominio:
+\begin{enumerate}[label=\alph*), itemsep=2pt]
+\begin{minipage}[t]{0.42\textwidth}
+\item $y=\arcsin x+\frac{\pi}{2}$
+\item $y=2\arctan x$
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+\item $y=\arccos(x-1)$
+\item $y=\left|\arcsin x\right|$
+\end{minipage}
+\end{enumerate}
+Confronta il grafico a) con quello di $y=\arccos x$ ribaltato rispetto a\dots\ Che cosa osservi?
+
+\section*{Parte E -- Equazioni e un problema (a casa)}
+\begin{enumerate}[label=\textbf{E.\arabic*}]
+\item Risolvi, motivando i casi impossibili:
+\begin{enumerate}[label=\alph*), itemsep=2pt]
+\begin{minipage}[t]{0.42\textwidth}
+\item $\arcsin x=\frac{\pi}{3}$
+\item $\arccos(2x)=\frac{2\pi}{3}$
+\item $\arctan(x-1)=-\frac{\pi}{4}$
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+\item $\arccos x=-\frac{\pi}{6}$
+\item $\arcsin x=\arccos x$
+\end{minipage}
+\end{enumerate}
+
+\item \textbf{Una rampa a norma.} La normativa italiana sull'abbattimento delle barriere architettoniche (D.M.~236/1989) fissa per le rampe una pendenza massima dell'$8\%$, cio\`e un dislivello di $8$ cm ogni metro di percorso \emph{orizzontale}.
+\begin{enumerate}[label=\alph*), itemsep=2pt]
+\item Quale funzione inversa fornisce l'angolo di inclinazione massimo? Calcolalo in radianti e in gradi (approssima al centesimo).
+\item Una rampa \`e costituita da una pedana lunga $5$ m (misurata lungo il piano inclinato) che supera un dislivello di $40$ cm. L'inclinazione si calcola con la stessa funzione del punto a)? Stabilisci se la rampa \`e a norma.
+\end{enumerate}
+
+\item[$\ast$\textbf{E.3}] Dimostra che $\arcsin x+\arccos x=\dfrac{\pi}{2}$ per ogni $x\in[-1,1]$.\\
+\emph{Suggerimento:} poni $\alpha=\arcsin x$ e verifica che $\frac{\pi}{2}-\alpha$ sta in $[0,\pi]$ e ha coseno uguale a $x$.
+\end{enumerate}
+
+\end{document}

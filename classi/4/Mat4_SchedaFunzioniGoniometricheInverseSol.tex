@@ -1,0 +1,203 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tabularx,array,booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\DeclareMathOperator{\arccot}{arccot}
+\newcommand{\risp}{\vspace{2pt}\noindent\textbf{Soluzione.}\ }
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlist[enumerate,1]{label=\alph*)}
+\newcommand{\assi}{%
+\draw[step=0.5,gray!20,very thin] (-4,-2) grid (4,3.5);
+\draw[->] (-4,0) -- (4.2,0) node[right]{\small $x$};
+\draw[->] (0,-2) -- (0,3.7) node[above]{\small $y$};
+\draw[dashed,gray] (-2,-2) -- (3.5,3.5);}
+
+\title{\textbf{Svolgimento} \\ \large Scheda di lavoro: le funzioni goniometriche inverse \\ Matematica -- Classe quarta}
+\author{Liceo Scientifico ``Galileo Galilei'' -- San Don\`a di Piave}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1cm}
+\noindent\textit{Documento riservato al docente: contiene lo svolgimento completo della scheda.}
+
+\section*{Parte A -- Grafici}
+
+\subsection*{A.1 -- A.2 Tabelle}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{7}{c|}}
+\hline
+$x$ & $-\frac{\pi}{2}$ & $-\frac{\pi}{3}$ & $-\frac{\pi}{6}$ & $0$ & $\frac{\pi}{6}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$\\\hline
+$\sin x$ & $-1$ & $-\frac{\sqrt3}{2}$ & $-\frac12$ & $0$ & $\frac12$ & $\frac{\sqrt3}{2}$ & $1$\\\hline
+\end{tabular}
+\\[6pt]
+\begin{tabular}{|c|*{7}{c|}}
+\hline
+$x$ & $0$ & $\frac{\pi}{6}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$ & $\frac{2\pi}{3}$ & $\frac{5\pi}{6}$ & $\pi$\\\hline
+$\cos x$ & $1$ & $\frac{\sqrt3}{2}$ & $\frac12$ & $0$ & $-\frac12$ & $-\frac{\sqrt3}{2}$ & $-1$\\\hline
+\end{tabular}
+\end{center}
+Scambiando le righe si ottengono, per esempio, $\arcsin\frac{\sqrt3}{2}=\frac{\pi}{3}$ e $\arccos\left(-\frac12\right)=\frac{2\pi}{3}$.
+
+\noindent\textbf{Perch\'e non $\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$ per il coseno?} Perch\'e l\`i il coseno non \`e iniettivo ($\cos\left(-\frac{\pi}{3}\right)=\cos\frac{\pi}{3}=\frac12$) e non assume valori negativi, quindi non \`e suriettivo su $[-1,1]$. In $[0,\pi]$ il coseno \`e strettamente decrescente e assume tutti i valori di $[-1,1]$.
+
+\subsection*{A.3 Tabelle}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{5}{c|}}
+\hline
+$x$ & $-\frac{\pi}{3}$ & $-\frac{\pi}{4}$ & $0$ & $\frac{\pi}{4}$ & $\frac{\pi}{3}$\\\hline
+$\tan x$ & $-\sqrt3$ & $-1$ & $0$ & $1$ & $\sqrt3$\\\hline
+\end{tabular}
+\\[6pt]
+\begin{tabular}{|c|*{5}{c|}}
+\hline
+$x$ & $\frac{\pi}{6}$ & $\frac{\pi}{4}$ & $\frac{\pi}{2}$ & $\frac{3\pi}{4}$ & $\frac{5\pi}{6}$\\\hline
+$\cot x$ & $\sqrt3$ & $1$ & $0$ & $-1$ & $-\sqrt3$\\\hline
+\end{tabular}
+\end{center}
+Gli asintoti verticali $x=\pm\frac{\pi}{2}$ della tangente diventano gli asintoti orizzontali $y=\pm\frac{\pi}{2}$ dell'arcotangente; per l'arcocotangente gli asintoti $x=0$ e $x=\pi$ della cotangente diventano $y=0$ e $y=\pi$.
+
+\subsection*{Grafici}
+In blu la funzione goniometrica ristretta, in rosso la sua inversa, tratteggiata la bisettrice $y=x$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.62]
+\assi
+\draw[thick,blue,domain=-1.5708:1.5708,samples=60] plot (\x,{sin(\x r)});
+\draw[thick,red,domain=-1:1,samples=80] plot (\x,{rad(asin(\x))});
+\node[red] at (-2.3,2.9) {\small $y=\arcsin x$};
+\node[blue] at (2.6,-1.3) {\small $y=\sin x$};
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[scale=0.62]
+\assi
+\draw[thick,blue,domain=0:3.1416,samples=60] plot (\x,{cos(\x r)});
+\draw[thick,red,domain=-1:1,samples=80] plot (\x,{rad(acos(\x))});
+\draw[dotted] (-4,1.5708) -- (4,1.5708) node[right]{\scriptsize $\frac{\pi}{2}$};
+\node[red] at (-2.4,2.9) {\small $y=\arccos x$};
+\node[blue] at (2.8,-1.4) {\small $y=\cos x$};
+\end{tikzpicture}
+\\[8pt]
+\begin{tikzpicture}[scale=0.62]
+\assi
+\draw[thick,blue,domain=-1.1:1.1,samples=60] plot (\x,{tan(\x r)});
+\draw[thick,red,domain=-4:4,samples=80] plot (\x,{rad(atan(\x))});
+\draw[dashed,red] (-4,1.5708) -- (4,1.5708) node[right]{\scriptsize $\frac{\pi}{2}$};
+\draw[dashed,red] (-4,-1.5708) -- (4,-1.5708) node[right]{\scriptsize $-\frac{\pi}{2}$};
+\node[red] at (-2.6,2.6) {\small $y=\arctan x$};
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[scale=0.62]
+\assi
+\draw[thick,blue,domain=0.3:2.66,samples=60] plot (\x,{cos(\x r)/sin(\x r)});
+\draw[thick,red,domain=-4:4,samples=80] plot (\x,{pi/2-rad(atan(\x))});
+\draw[dashed,red] (-4,3.1416) -- (4,3.1416) node[right]{\scriptsize $\pi$};
+\node[red] at (-2.3,1.2) {\small $y=\operatorname{arccot} x$};
+\end{tikzpicture}
+\end{center}
+
+\subsection*{A.4 Tabella riassuntiva}
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\small
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+ & $y=\arcsin x$ & $y=\arccos x$ & $y=\arctan x$ & $y=\arccot x$\\\hline
+Dominio & $[-1,1]$ & $[-1,1]$ & $\mathbb{R}$ & $\mathbb{R}$\\\hline
+Codominio & $\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$ & $[0,\pi]$ & $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ & $(0,\pi)$\\\hline
+Monotonia & crescente & decrescente & crescente & decrescente\\\hline
+Simmetrie & dispari & centro $\left(0,\frac{\pi}{2}\right)$ & dispari & centro $\left(0,\frac{\pi}{2}\right)$\\\hline
+Asintoti & nessuno & nessuno & $y=\pm\frac{\pi}{2}$ & $y=0$, $y=\pi$\\\hline
+\end{tabular}
+\end{center}
+Relazioni utili: $\arccos(-x)=\pi-\arccos x$, \ $\arcsin x+\arccos x=\frac{\pi}{2}$, \ $\arccot x=\frac{\pi}{2}-\arctan x$, \ $\arccot(-x)=\pi-\arccot x$.
+
+\section*{Parte B -- Valori e composizioni}
+\subsection*{B.1}
+\begin{enumerate}
+\item $\arcsin\frac12=\frac{\pi}{6}$
+\item $\arcsin\left(-\frac{\sqrt3}{2}\right)=-\frac{\pi}{3}$ \quad (disparit\`a)
+\item $\arccos\left(-\frac{\sqrt2}{2}\right)=\pi-\frac{\pi}{4}=\frac{3\pi}{4}$
+\item $\arccos 0=\frac{\pi}{2}$
+\item $\arctan\left(-\sqrt3\right)=-\frac{\pi}{3}$
+\item $\arctan 1=\frac{\pi}{4}$
+\item $\arccot(-1)=\pi-\frac{\pi}{4}=\frac{3\pi}{4}$ \quad (non $-\frac{\pi}{4}$, che non sta in $(0,\pi)$)
+\item $\arccot\sqrt3=\frac{\pi}{6}$
+\end{enumerate}
+
+\subsection*{B.2}
+\begin{enumerate}
+\item $\sin\left(\arcsin\frac13\right)=\frac13$, perch\'e $\sin(\arcsin x)=x$ per ogni $x\in[-1,1]$.
+\item $\sin\frac{5\pi}{6}=\frac12$, quindi $\arcsin\left(\sin\frac{5\pi}{6}\right)=\arcsin\frac12=\frac{\pi}{6}\neq\frac{5\pi}{6}$, perch\'e $\frac{5\pi}{6}\notin\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$.
+\item $\cos\left(-\frac{\pi}{3}\right)=\frac12$, quindi il risultato \`e $\arccos\frac12=\frac{\pi}{3}$.
+\item $\tan\frac{3\pi}{4}=-1$, quindi il risultato \`e $\arctan(-1)=-\frac{\pi}{4}$.
+\item Posto $\alpha=\arcsin\frac35\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$, si ha $\cos\alpha\ge0$, quindi $\cos\alpha=\sqrt{1-\frac{9}{25}}=\frac45$.
+\item $\arccos\left(-\frac12\right)=\frac{2\pi}{3}$, quindi il risultato \`e $\tan\frac{2\pi}{3}=-\sqrt3$.
+\item Non ha senso: $2\notin[-1,1]$, dominio dell'arcoseno.
+\item Posto $\alpha=\arctan 2$, si ha $\alpha\in\left(0,\frac{\pi}{2}\right)$ perch\'e $2>0$. Da $\sin\alpha=\dfrac{\tan\alpha}{\sqrt{1+\tan^2\alpha}}$ (valida per $\cos\alpha>0$) segue $\sin\alpha=\dfrac{2}{\sqrt5}=\dfrac{2\sqrt5}{5}$.
+\end{enumerate}
+
+\section*{Parte C -- Domini}
+\begin{enumerate}
+\item $-1\le 2x-1\le 1 \iff 0\le x\le 1$. \quad $D=[0,1]$.
+\item $-1\le x^2-1\le 1 \iff 0\le x^2\le 2 \iff -\sqrt2\le x\le\sqrt2$. \quad $D=\left[-\sqrt2,\sqrt2\right]$.
+\item L'arcotangente \`e definita su tutto $\mathbb{R}$: basta $x\neq 2$. \quad $D=\mathbb{R}\setminus\{2\}$.
+\item Serve $x\in[-1,1]$ e $\arcsin x\ge0$, cio\`e $0\le x\le 1$. \quad $D=[0,1]$.
+\item Basta che esista $\sqrt x$: \quad $D=[0,+\infty)$.
+\item Condizioni: $x\neq1$ e $-1\le\dfrac{x+1}{x-1}\le1$.
+\[
+\frac{x+1}{x-1}\le 1 \iff \frac{2}{x-1}\le 0 \iff x<1;
+\qquad
+\frac{x+1}{x-1}\ge -1 \iff \frac{2x}{x-1}\ge 0 \iff x\le 0 \ \vee\ x>1.
+\]
+Intersecando: $D=(-\infty,0]$.
+\end{enumerate}
+
+\section*{Parte D -- Grafici deducibili}
+\begin{enumerate}
+\item Traslazione di $\frac{\pi}{2}$ verso l'alto di $y=\arcsin x$: $D=[-1,1]$, codominio $[0,\pi]$, crescente, passa per $\left(0,\frac{\pi}{2}\right)$.\\
+\emph{Osservazione:} coincide con il grafico di $y=\arccos x$ ribaltato rispetto all'asse $y$, cio\`e $\arcsin x+\frac{\pi}{2}=\arccos(-x)$. Infatti $\arccos(-x)=\pi-\arccos x=\pi-\left(\frac{\pi}{2}-\arcsin x\right)$.
+\item Dilatazione verticale di fattore $2$: $D=\mathbb{R}$, codominio $(-\pi,\pi)$, asintoti orizzontali $y=\pm\pi$.
+\item Traslazione di $1$ verso destra: $D=[0,2]$, codominio $[0,\pi]$, decrescente; passa per $(0,\pi)$, $\left(1,\frac{\pi}{2}\right)$, $(2,0)$.
+\item Si ribalta rispetto all'asse $x$ la parte con $x<0$: $D=[-1,1]$, codominio $\left[0,\frac{\pi}{2}\right]$, funzione pari, minimo nell'origine con punto angoloso.
+\end{enumerate}
+
+\section*{Parte E -- Equazioni e problema}
+\subsection*{E.1}
+\begin{enumerate}
+\item $\frac{\pi}{3}\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$, quindi $x=\sin\frac{\pi}{3}=\frac{\sqrt3}{2}$.
+\item $\frac{2\pi}{3}\in[0,\pi]$, quindi $2x=\cos\frac{2\pi}{3}=-\frac12$, da cui $x=-\frac14$.
+\item $x-1=\tan\left(-\frac{\pi}{4}\right)=-1$, da cui $x=0$.
+\item Impossibile: $-\frac{\pi}{6}\notin[0,\pi]$, codominio dell'arcocoseno.
+\item Da $\arcsin x+\arccos x=\frac{\pi}{2}$ e $\arcsin x=\arccos x$ segue $\arcsin x=\frac{\pi}{4}$, cio\`e $x=\frac{\sqrt2}{2}$.
+\end{enumerate}
+
+\subsection*{E.2 La rampa}
+\begin{enumerate}
+\item La pendenza \`e il rapporto tra dislivello e percorso orizzontale, cio\`e la tangente dell'angolo di inclinazione $\alpha$. Quindi
+\[
+\alpha_{\max}=\arctan 0{,}08\approx 0{,}0798\ \text{rad}\approx 4{,}57^\circ.
+\]
+\item No: i $5$ m sono misurati lungo il piano inclinato, cio\`e sono l'ipotenusa. Il rapporto $\frac{0{,}40}{5}=0{,}08$ \`e il \emph{seno} dell'angolo:
+\[
+\alpha=\arcsin 0{,}08\approx 0{,}0801\ \text{rad}\approx 4{,}59^\circ>4{,}57^\circ.
+\]
+La pendenza effettiva \`e $\tan\alpha\approx 0{,}0803=8{,}03\%$ (proiezione orizzontale $5\cos\alpha\approx 4{,}98$ m), quindi la rampa \textbf{non \`e a norma}, anche se di poco.\\
+\emph{Nota per il docente:} l'errore tipico \`e concludere ``$40/500=8\%$, a norma'', confondendo seno e tangente. Per angoli piccoli i due valori sono quasi uguali, e questo apre una discussione utile sull'approssimazione $\sin\alpha\approx\tan\alpha\approx\alpha$.
+\end{enumerate}
+
+\subsection*{E.3 Dimostrazione}
+Sia $x\in[-1,1]$ e $\alpha=\arcsin x$, quindi $-\frac{\pi}{2}\le\alpha\le\frac{\pi}{2}$ e $\sin\alpha=x$. Allora $0\le\frac{\pi}{2}-\alpha\le\pi$ e $\cos\left(\frac{\pi}{2}-\alpha\right)=\sin\alpha=x$. L'angolo $\frac{\pi}{2}-\alpha$ sta nel codominio dell'arcocoseno e ha coseno $x$; poich\'e il coseno \`e iniettivo in $[0,\pi]$, \`e proprio $\arccos x$. Quindi $\arccos x=\frac{\pi}{2}-\arcsin x$, cio\`e la tesi.
+
+\end{document}
